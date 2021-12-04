@@ -159,7 +159,7 @@ $breakpoints: (
     flex-direction: column-reverse;
 
     #hero-section {
-      height: 70%;
+      height: 70vh;
 
       .card-outer {
         width: 60%;
@@ -197,7 +197,7 @@ $breakpoints: (
     }
 
     .large-text {
-      height: 30%;
+      height: 30vh;
       font-size: 16.5vw;
       word-break: break-all;
     }
