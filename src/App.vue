@@ -28,12 +28,26 @@
 </template>
 
 <script>
+// import "./assets/styles/_include-media.scss";
+
 export default {
   name: "App",
 };
 </script>
 
 <style lang="scss">
+@import "./assets/styles/_include-media.scss";
+
+$breakpoints: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xl2: 1536px,
+  xl4: 1920px,
+  xl6: 2304px,
+);
+
 @mixin border-gradient($from, $to, $weight: 0) {
   $mix-main: mix($from, $to);
   $mix-sub-from: mix($mix-main, $from);
@@ -69,8 +83,16 @@ export default {
     font-family: "Major Mono Display", monospace;
     font-weight: 700;
     color: #e5e5e5;
-    font-size: 5rem;
+    // font-size: 5rem;
+    font-size: 9.75vh;
     opacity: 0.45;
+    // background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+    // background-size: cover;
+    // color: transparent;
+    // background-clip: text;
+    // -moz-background-clip: text;
+    // -webkit-background-clip: text;
+    // text-transform: uppercase;
   }
 
   #hero-section {
@@ -81,12 +103,12 @@ export default {
 
     .card-outer {
       width: 70%;
-      height: 25%;
+      height: auto;
       margin-left: 10%;
 
       .card-inner {
         display: flex;
-        gap: 0.5em;
+        gap: 0.75em;
 
         .image {
           width: 25%;
@@ -120,11 +142,148 @@ export default {
 
           .short-desc {
             font-family: monospace;
-            font-size: 1.25em;
+            font-size: 1rem;
             font-weight: 400;
             letter-spacing: 0.125em;
             vertical-align: middle;
             line-height: 1.25em;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media("screen", "<sm") {
+  #container {
+    flex-direction: column-reverse;
+
+    #hero-section {
+      height: 70%;
+
+      .card-outer {
+        width: 60%;
+        height: 70%;
+        margin-left: 0;
+        // margin-top: -5%;
+
+        .card-inner {
+          flex-direction: column;
+
+          .image {
+            width: 100%;
+
+            img {
+              width: 60%;
+              height: 60%;
+            }
+          }
+
+          .description {
+            width: 100%;
+
+            .name {
+              text-align: center;
+              font-size: 6.25vw;
+            }
+
+            .short-desc {
+              text-align: center;
+              font-size: 2.6vw;
+            }
+          }
+        }
+      }
+    }
+
+    .large-text {
+      height: 30%;
+      font-size: 16.5vw;
+      word-break: break-all;
+    }
+  }
+}
+
+@include media("screen", ">=sm", "<xl") {
+  #container {
+    #hero-section {
+      .card-outer {
+        width: 70%;
+        height: 60%;
+        margin-left: 0;
+        // margin-top: -5%;
+
+        .card-inner {
+          flex-direction: column;
+
+          .image {
+            width: 100%;
+          }
+
+          .description {
+            width: 100%;
+
+            .name {
+              text-align: center;
+              font-size: 5.4vw;
+            }
+
+            .short-desc {
+              text-align: center;
+              font-size: 1.25em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media("screen", ">=xl4") {
+  #container {
+    #hero-section {
+      .card-outer {
+        .card-inner {
+          .image {
+            img {
+              height: 12em;
+              width: 12em;
+            }
+          }
+          .description {
+            .name {
+              font-size: 3em;
+            }
+
+            .short-desc {
+              font-size: 1.4em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media("screen", ">=xl6") {
+  #container {
+    #hero-section {
+      .card-outer {
+        .card-inner {
+          .image {
+            img {
+              height: 15em;
+              width: 15em;
+            }
+          }
+          .description {
+            .name {
+              font-size: 5em;
+            }
+
+            .short-desc {
+              font-size: 1.8em;
+            }
           }
         }
       }
