@@ -28,10 +28,23 @@
 </template>
 
 <script>
-// import "./assets/styles/_include-media.scss";
+import baffle from "baffle";
+import { onMounted } from "@vue/runtime-core";
 
 export default {
   name: "App",
+  setup() {
+    function init(elm) {
+      const b = baffle(elm, {
+        characters: "zpxzVpasdfh86136░█▒ ░░░█▓ >░░ ▓/▒█▓ █ █>█▒sayg▒ ░░░█▓ >yf",
+        speed: 150,
+      });
+      b.start().reveal(2500);
+    }
+    onMounted(() => {
+      init(".short-desc");
+    });
+  },
 };
 </script>
 
