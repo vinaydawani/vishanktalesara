@@ -1,9 +1,11 @@
 <template>
   <div id="container">
-    <span class="large-text">
-      SEEK <br />
-      DISCOMFORT
-    </span>
+    <div>
+      <span class="large-text">
+        <span class="seek">SEEK</span> <br />
+        <span class="dscmft">DISCOMFORT</span>
+      </span>
+    </div>
     <div id="hero-section">
       <div class="card-outer">
         <div class="card-inner">
@@ -210,9 +212,22 @@ $breakpoints: (
     }
 
     .large-text {
+      writing-mode: horizontal-tb;
       height: 30vh;
       font-size: 16.5vw;
       word-break: break-all;
+      vertical-align: baseline;
+
+      .seek::after {
+        content: ".DISCOMFORT.";
+      }
+
+      .dscmft {
+        // letter-spacing: 0.3em;
+        display: none;
+        writing-mode: horizontal-tb;
+        word-break: break-all;
+      }
     }
   }
 }
