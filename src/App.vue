@@ -1,4 +1,5 @@
 <template>
+  <Eth3D></Eth3D>
   <div id="container">
     <span class="large-text">
       SEEK <br />
@@ -30,9 +31,13 @@
 <script>
 import baffle from "baffle";
 import { onMounted } from "@vue/runtime-core";
+import Eth3D from "@/components/eth.vue";
 
 export default {
   name: "App",
+  components: {
+    Eth3D,
+  },
   setup() {
     function init(elm) {
       const b = baffle(elm, {
